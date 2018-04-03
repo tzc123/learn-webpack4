@@ -1,13 +1,10 @@
 
-import React from 'react';
+import ReactDOM from 'react-dom'
+import Router from './router'
+import './styles/search.css'
+import './styles/form.css'
 
-class Home extends React.Component {
-  render() {
-    console.log(React)
-    return (
-      <h1>hello world</h1>
-    )
-  }
-}
-
-console.log(Home)
+ReactDOM.render(
+  <Router />, 
+  document.getElementById('app')
+)
