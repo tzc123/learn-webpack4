@@ -1,4 +1,12 @@
 export default class SearchForm extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      name: '',
+      sex: '',
+
+    }
+  }
   render() {
     return (
       <form>

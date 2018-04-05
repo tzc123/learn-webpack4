@@ -1,6 +1,7 @@
 import Table from '../components/Table'
 import SearchForm from '../components/SearchForm'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import '../styles/search.css'
 
 export default class Search extends React.Component {
@@ -26,6 +27,7 @@ export default class Search extends React.Component {
     const { data } = this.state
     return (
       <div className="container">
+        <Link to='/form'>添加</Link>
         <SearchForm/>
         <Table data={data}/>
       </div>
