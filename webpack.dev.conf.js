@@ -8,7 +8,7 @@ const outputPath = path.join(__dirname, 'dist')
 module.exports = {
   // source-map 将打包后的代码和打包前的做一个映射，方便调试
   devtool: 'cheap-module-eval-source-map',
-  mode: 'production',
+  mode: 'development',
   entry: {
     app: appPath
   },

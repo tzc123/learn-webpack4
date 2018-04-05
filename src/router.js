@@ -1,6 +1,6 @@
 import { BrowserRouter, Route } from "react-router-dom";
-import Search from './pages/search'
-import Form from './pages/form'
+import Search from './pages/Search'
+import Form from './pages/Form'
 
 export default () => (
   <BrowserRouter>
