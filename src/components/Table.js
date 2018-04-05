@@ -6,6 +6,7 @@ export default class Table extends React.Component {
       : data.map((item, index) => (
         <tr key={index}>
           <td>{item.id}</td>
+          <td><img src={'http://localhost:3000' + item.avatar}></img></td>
           <td>{item.name == 1 ? '男' : '女'}</td>
           <td>{item.sex}</td>
           <td>{item.grade}</td>
