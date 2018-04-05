@@ -2,6 +2,7 @@ const Koa = require('koa')
 const cors = require('koa-cors')
 const Router = require('koa-router')
 const static = require('koa-static')
+const body = require('koa-body')
 const router = new Router()
 const app = new Koa()
 
@@ -87,6 +88,8 @@ router
       success: res
     }
   })
+// 解析post请求的参数
+app.use(body())
 // 解决跨域
 app.use(cors())
 // 静态文件服务器，其实就是根据文件目录建立路由
