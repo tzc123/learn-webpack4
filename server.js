@@ -25,11 +25,12 @@ class List {
     return true
   }
   update(item) {
+    console.log(item)
     const isValid = item.hasOwnProperty('id')
 
     if (!isValid) return false
 
-    const willUpdate = this._list.find(i => item.id === i.id)
+    const willUpdate = this._list.find(i => +item.id === i.id)
 
     if (!willUpdate) return false
 
