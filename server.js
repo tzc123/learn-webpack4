@@ -25,7 +25,6 @@ class List {
     return true
   }
   update(item) {
-    console.log(item)
     const isValid = item.hasOwnProperty('id')
 
     if (!isValid) return false
@@ -36,7 +35,9 @@ class List {
 
     willUpdate.updated_at = Date.now()
     List.fields.forEach(field => {
-      willUpdate[field] = item[field]
+      if (item[field]) {
+        willUpdate[field] = item[field]
+      }
     })
 
     return true
