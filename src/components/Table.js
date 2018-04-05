@@ -7,13 +7,13 @@ export default class Table extends React.Component {
         <tr key={index}>
           <td>{item.id}</td>
           <td><img src={'http://localhost:3000' + item.avatar}></img></td>
-          <td>{item.name == 1 ? '男' : '女'}</td>
-          <td>{item.sex}</td>
+          <td>{item.name}</td>
+          <td>{item.sex == '1' ? '男' : '女'}</td>
           <td>{item.grade}</td>
           <td>{item._class}</td>
-          <td>{new Date(item.birth).toLocaleDateString()}</td>
-          <td>{new Date(item.created_at).toLocaleDateString()}</td>
-          <td>{item.updated_at ? new Date(item.updated_at).toLocaleDateString() : '无更新'}</td>
+          <td>{new Date(+item.birth).toLocaleString()}</td>
+          <td>{new Date(+item.created_at).toLocaleString()}</td>
+          <td>{item.updated_at ? new Date(+item.updated_at).toLocaleString() : '无更新'}</td>
         </tr>
         )
       )

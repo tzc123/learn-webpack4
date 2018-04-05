@@ -11,6 +11,7 @@ class List {
     this._list = []
   }
   add(item) {
+    console.log(item)
     const isValid = List.fields.every(
       key => item.hasOwnProperty(key)
     )
@@ -61,10 +62,10 @@ List.id = 1
 const list = new List()
 list.add({
   name: 'aaa',
-  grade: 3,
-  _class: 10,
-  birth: new Date('1997/03/15').getTime(),
-  sex: 1,
+  grade: '3',
+  _class: '10',
+  birth: new Date('1997/03/15').getTime() + '',
+  sex: '1',
   avatar: '/avatars/aaa.png'
 })
 
@@ -76,9 +77,21 @@ router
       data: list.find(query)
     }
   })
-  .post('/add', ctx => {
+  .post('/add', body({
+    multipart: true,
+    formidable: {
+      onFileBegin(name, file) {
+        if (name == 'avatar' && file.type.indexOf('image') != -1) {
+          file.path = './public/avatars/' + file.name
+        } 
+      }
+    }
+  }), ctx => {
     const { body } = ctx.request
-    const res = list.add(body)
+    const res = list.add({
+      ...body.fields,
+      avatar: '/avatars/' + body.files.avatar.name
+    })
     ctx.body = {
       success: res
     }

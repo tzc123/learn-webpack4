@@ -3,8 +3,8 @@ export default class SearchForm extends React.Component {
     super()
     this.state = {
       name: '',
-      sex: '',
-
+      sex: -1,
+      _class: ''
     }
   }
   render() {
